@@ -1,6 +1,6 @@
 applications:
 - name: titanic
-  memory: 256M
+  memory: 64M
   command: python main.py
   random-route: true
   services:
