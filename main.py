@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # get service information if on IBM Cloud Platform
 if 'VCAP_SERVICES' in os.environ:
-    db2info = json.loads(os.environ['VCAP_SERVICES'])['WXF87327'][0]
+    db2info = json.loads(os.environ['VCAP_SERVICES'])['dashDB'][0]
     db2cred = db2info["credentials"]
     appenv = json.loads(os.environ['VCAP_APPLICATION'])
 else:
