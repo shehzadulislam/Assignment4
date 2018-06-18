@@ -1,0 +1,69 @@
+{# Display information about a city. #}
+{# The app fetches the information from the database and passes it into this page in "ci". #}
+{% extends "base.html" %}
+{% block title %}City Information{% endblock %}
+{% block content %}
+
+{# Loop over cities if we have multiple results for popular names like Milan, Rome, Berlin #}
+
+<br>
+<h2> Shehzad ul Islam - 1001555356</h2>
+<br>
+<br> <br>
+<table border = 1>
+  <thead>
+  <td>PCLASS</td>
+  <td>SURVIVED</td>
+  <td>NAME</td>
+  <td>SEX</td>
+  <td>AGE</td>
+  <td>SIBSP</td>
+  <td>PARCH</td>
+  <td>TICKET</td>
+  <td>CABIN</td>
+  <td>EMBARKED</td>
+  <td>BOAT</td>
+  <td>HOME.DEST</td>
+  </thead>
+
+  {% for row in collection %}
+  <tr>
+      <td>{{row["PCLASS"]}}</td>
+      <td>{{row["SURVIVED"]}}</td>
+    <td>{{row["NAME"]}}</td>
+    <td>{{row["SEX"]}}</td>
+    <td>{{row["AGE"]}}</td>
+    <td>{{row["SIBSP"]}}</td>
+    <td>{{row["PARCH"]}}</td>
+    <td>{{row["TICKET"]}}</td>
+      <td>{{row["FARE"]}}</td>
+      <td>{{row["CABIN"]}}</td>
+      <td>{{row["EMBARKED"]}}</td>
+      <td>{{row["BOAT"]}}</td>
+      <td>{{row["HOME.DEST"]}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<!--{% for city in ci %}-->
+  <!--<h1>{{titanic["NAME"]}}</h1>-->
+  <!--<p>The people of <b>{{titanic["NAME"]}}</b> ({{titanic["SURVIVED"]}}) is located in <b>{{city["COUNTRYCODE"]}}</b> within the timezone <b>{{city["TIMEZONE"]}}</b>.-->
+    <!--It has a population of <b>{{city["POPULATION"]}}</b>. </p>-->
+  <!--{# If there are alternate names, split them to format them nicely #}-->
+  <!--{% if city["ALTERNATENAMES"] %}-->
+    <!--The following alternative names are in use:-->
+    <!--<p>{% set namelist = (city["ALTERNATENAMES"]).split(',') %}-->
+      <!--{% for name in namelist %}-->
+      <!--{{ name }} //-->
+      <!--{% endfor %}</p>-->
+  <!--{% endif %}-->
+
+  <!--<h4>Location Information</h4>-->
+  <!--<p>Latitude: {{city["LATITUDE"]}}<p>-->
+  <!--<p>Longitude: {{city["LONGITUDE"]}}<p>-->
+  <!--<p>Elevation: {{city["DEM"]}}</p>-->
+  <!--<p>Map: <a href="http://www.openstreetmap.org/#map=13/{{city["LATITUDE"]}}/{{city["LONGITUDE"]}}">{{city["NAME"]}}</a></p>-->
+
+
+<!--{% endfor %}-->
+{% endblock %}

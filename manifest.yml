@@ -1,0 +1,7 @@
+applications:
+- name: titanic
+  memory: 256M
+  command: python main.py
+  random-route: true
+  services:
+  - sqldatabase
