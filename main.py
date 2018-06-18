@@ -9,13 +9,12 @@ import ibm_db
 
 app = Flask(__name__)
 
-# get service information if on IBM Cloud Platform
 if 'VCAP_SERVICES' in os.environ:
-    db2info = json.loads(os.environ['VCAP_SERVICES'])['dashDB'][0]
+    db2info = json.loads(os.environ['VCAP_SERVICES'])['dashDB For Transactions'][0]
     db2cred = db2info["credentials"]
     appenv = json.loads(os.environ['VCAP_APPLICATION'])
-else:
-    raise ValueError('Expected cloud environment')
+# else:
+#     raise ValueError('Expected cloud environment')
 
 def create_connection():
     """ create a database connection to the SQLite database
@@ -75,6 +74,6 @@ def searchroute():
 def titanicroute(name=None):
     return titanic(name)
 
-port = os.getenv('PORT', '5000')
+port = os.getenv('PORT', '8000')
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(port))
